@@ -6,13 +6,15 @@ Juan Pablo Tejeiro Londoño
 
 ## Descripción de la solución planteada  
 
-El objetivo de la práctica es, en principio, lograr que uno de los robot ABB IRB 140 del LabSir ejecute con exito, presición y seguridad una trayectoria capaz de dibujar el logo de una empresa reconocida, su nombre y las inciiales del integrante del equipo. Para obtener este resultado fué necesario utilizar una serie de herramientas tecnológicas requeridas por los lineamientos de la guía de laboratorio.  
+<p style="text-align: justify;"> El objetivo de la práctica es, en principio, lograr que uno de los robot ABB IRB 140 del LabSir ejecute con exito, presición y seguridad una trayectoria capaz de dibujar el logo de una empresa reconocida, su nombre y las inciiales del integrante del equipo. Para obtener este resultado fué necesario utilizar una serie de herramientas tecnológicas requeridas por los lineamientos de la guía de laboratorio.</p>  
 
 En primer lugar se inicia la curva de aprendizaje ejecutando las guías prácticas proveidas por el curso para una correcta familiarización con el entorno y sus diversas aplicaciones. Seguido a esto se define la configuración a utilizar para la simulación de la práctica, para esto se selecciona el archivo de tipo estación y se selecciona el robot IRB140 de la biblioteca de RobotStudio, el siguiente paso fué generar el controlador del robot mediante la herramienta de diseño de controladores virtuales y el software de controladores RobotWare de ABB con su versión respectiva.
 
 Para ejecutar la rutina propuesta por la guía se exige el diseño de una herramienta  desde cero que pemita crear el dibujo, este proceso se va a describir a detalle en la sección "Diseño de la herramienta" mas adelante. Ya teniendo la herramienta diseñada se procede a incorporarla en la estación de trabajo de RobotStudio y se crea el correspondiente dato de tipo ToolData que busca codificar los datos asociados a la herramienta para ser procesados por el controlador del robot y dar a entender al robot que cualquier rutina ejecutada deberá tener en cuenta a la herramienta instalada en el flanche. En un principio se seleccionó la masa de la herramienta para el ToolData como 120 gramos que era un cálculo aproximado real basado en las propiedades arrojadas pir el software CAD de diseño utilizado para la herramienta, pero tras varias pruebas se determinó que este valor es demasiado bajo y causa un error de "Carga dinámica excesiva" durante la simulación, para solucionar esto se guarda la masa con un valor de 300 gramos, de igual manera por convenciencia se dejan los valores por defecto de momentos de inercia y centro de masa. Para ubicar el TCP se ubica el origen de la herramienta de manera que este sea el mismo punto de coincidencia del flanche del robot, en el centro de la base circular de la herramienta, seguido a esto se orienta la herramienta en la dirección que se busca con respecto al HOME del robot para facilitar la orientación del TCP, teniendo en cuenta que se diseñó la herramienta con un ángulo de inclinación de 30° que permita que se posicione de manera totalmente vertical en el HOME del robot, de esta manera bastó con seleccionar el punto de la punta de la herramienta y reorientar el sistema de coordenadas con un ángulo de 60° (90° - 30° de la herramienta) para conseguir el resultado esperado.  
 
-![image](https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/887e05b1-2b3e-4b1b-951c-4d57bddd1350)  
+<p align="center">
+  <img width="500" height="400" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/887e05b1-2b3e-4b1b-951c-4d57bddd1350">
+</p>
 
 Teniendo ya la estación, el robot, el controlador y el ToolData, queda definir el WorkObject para conseguir todos los elementos necesarios para estructurar una rutina de trabajo para el robot. Basado en los planos inclinados presentes en el laboratorio y las opciones de la guía de laboratorio, se opta por diseñar la rutina de modo que la trayectoria se ejecute en un plano inclinado. Para esto, por facilidad, se crea un modelado con el logo, la amarca y las inciales, enmarcadas en un plano inclinado de 45° y se importa a la estación. También, por la distribución de los elementos a dibujar y el objetivo de acomodar todo en una hoja fomato A4, se orienta horizontalmente la trayectoria como se observa en la figura. Para definir el WorkObject simplemente se define los 3 puntos del sistema de coordenadas de usuario del dato tipo WorkObject y se seleeciona 2 puntos de la linea superior del plano como eje X y 1 punto de la linea lateral del plano como eje Y, de esta manera el eje Z queda orientado en la dirección ortogonal al plano inclinado.  
 
@@ -22,17 +24,40 @@ Como parte del proceso iterativo que se llevó a cabo para dar con una trayector
 
 ## Plano de planta  
 
+
+
+<p align="center">
+  <img width="1000" height="800" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/3673669a-006e-4f98-aadd-4d82afc886c0">  
+</p>
+
+
 ## Descripción de las funciones utilizadas  
 
 ## Diseño de la herramienta  
 
+<p align="center">
+  <img width="600" height="300" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/3cd43ddb-e65d-4677-86e6-c26ef3b47a6d">  
+</p>
+
+<p align="center">
+  <img width="1277" height="781" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/6c10946c-ac81-4955-aa9e-8830bcfeca03">  
+</p>
+
+<p align="center">
+  <img width="331" height="429" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/e0cf8da1-ccfe-4c77-9b7b-e72fe46500cf">  
+</p>
+
+<p align="center">
+  <img width="600" height="1000" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/0061de48-3364-489f-adc3-05b73b57fdfe">  
+</p>
+
+<p align="center">
+  <img width="1000" height="1000" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/a2998b89-ef5b-4143-b568-5bd734ee4ffb">  
+</p>
+
 ## Simulación en RobotStudio  
 
 https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/4c1a2998-2781-41d5-81e9-d786c137cee9
-
-<p align="center">
-  <img width="460" height="300" src="[https://www.pexels.com/photo/photo-of-grey-tabby-kitten-lying-down-2558605/](https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/4c1a2998-2781-41d5-81e9-d786c137cee9)">
-</p>
 
 ## Implementación práctica en el LabSir
 
