@@ -6,7 +6,7 @@ Juan Pablo Tejeiro Londoño
 
 ## Descripción de la solución planteada  
 
-<p style="text-align: justify;"> El objetivo de la práctica es, en principio, lograr que uno de los robot ABB IRB 140 del LabSir ejecute con exito, presición y seguridad una trayectoria capaz de dibujar el logo de una empresa reconocida, su nombre y las inciiales del integrante del equipo. Para obtener este resultado fué necesario utilizar una serie de herramientas tecnológicas requeridas por los lineamientos de la guía de laboratorio.</p>  
+El objetivo de la práctica es, en principio, lograr que uno de los robot ABB IRB 140 del LabSIR ejecute con exito, presición y seguridad una trayectoria capaz de dibujar el logo de una empresa reconocida, su nombre y las inciiales del integrante del equipo. Para obtener este resultado fué necesario utilizar una serie de herramientas tecnológicas requeridas por los lineamientos de la guía de laboratorio.  
 
 En primer lugar se inicia la curva de aprendizaje ejecutando las guías prácticas proveidas por el curso para una correcta familiarización con el entorno y sus diversas aplicaciones. Seguido a esto se define la configuración a utilizar para la simulación de la práctica, para esto se selecciona el archivo de tipo estación y se selecciona el robot IRB140 de la biblioteca de RobotStudio, el siguiente paso fué generar el controlador del robot mediante la herramienta de diseño de controladores virtuales y el software de controladores RobotWare de ABB con su versión respectiva.
 
@@ -22,12 +22,16 @@ Como parte del proceso iterativo que se llevó a cabo para dar con una trayector
 
 ## Diagrama de flujo de las acciones del robot  
 
+<p align="center">
+  <img width="371" height="1924" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/3ff6a48e-6d6f-4e67-83ac-69dc099e3857">
+</p>
+
 ## Plano de planta  
 
-
+En esta sección se presenta una vista de planta del laboratorio, específicamente la estación de trabajo, se planteó a escala y de amnera aproximada la distribución principal de la estación utilizada del laboratorio de robótica LabSIR. Se presenta el robot como elemento principal, sobre su respectiba base de trabajo. En la esquina inferior derecha se encuentra el controlador, donde también se encuentra ubicado el FlewPendant, en la parte inferior esta la mesa de trabajo del operador, desde donde se minitoreo y controló el robot para la ejecución de las rutinas. Finalmente se muestra la posición de la herramienta diseñada instalada en la brida del robot y el workobject con el logo e iniciales definidas para la trayectoria.  
 
 <p align="center">
-  <img width="1000" height="800" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/3673669a-006e-4f98-aadd-4d82afc886c0">  
+  <img width="1000" height="800" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/0149ec80-2925-4d13-97bd-084d9b22a255">  
 </p>
 
 
@@ -35,21 +39,31 @@ Como parte del proceso iterativo que se llevó a cabo para dar con una trayector
 
 ## Diseño de la herramienta  
 
+Para poder diseñar la herramienta, se hizo un modelado de ingeniería basado completamente en el marcador a utilizar. Con ayuda de un pie de rey se tomó las dimensiones del marcador y de estas se desarrollo el porta marcador de la herramienta. Para el diseño de la pieza de fijación en la brida del robot se utilizó el plano de esta pieza presente en el manual del robot como se puede observar en la siguiente figura.
+
 <p align="center">
   <img width="600" height="300" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/3cd43ddb-e65d-4677-86e6-c26ef3b47a6d">  
-</p>
+</p>  
+
+La herramienta se modeló en 2 piezas utilizando el software CAD Inventor de Autodesk, luego de esto los dos archivos se exportaron en formato STEP y fueron impresos en la impresora 3D presente en la oficina de la empresa para la cuál se trabaja actualemente, lo cuál facilitó el acceso pero también generó ciertos problemas pues la máquina no estaba bien calibrada y fue necesario un proceso de precalibrado para obtener los resultados deseados. La pieza superior del porta marcador se diseño con un ajuste estrecho para que el marcador no requiriera de ningún otro tipo de elemento de agarre sino que pudiera dejarse fijo con algo de presión. La unión entre las dos piezas se realizó mediante un tornillo y tuerca simples, la impresión por facilidad y presición se ejecutó sin estos agujeros, por lo cuál los agujeros fueron realizados de manera rápida con ayuda de un taladro.
 
 <p align="center">
   <img width="1277" height="781" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/6c10946c-ac81-4955-aa9e-8830bcfeca03">  
-</p>
+</p>  
+
+En la siguiente figura se muestra la herramienta al ser importada al entorno de RobotStudio y siendo generado el ToolData Correspondiente. Como se puede observar el sistema coordenado del TCP esta orientado de manera tal que el eje Z positivo se encuentre con el eje del marcador y el eje X se encuentre orientado en sentido diametral inferior del marcador de manera que coincida con el sistema coordenado de la brida del robot.
 
 <p align="center">
   <img width="331" height="429" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/e0cf8da1-ccfe-4c77-9b7b-e72fe46500cf">  
-</p>
+</p>  
+
+El resultado final puede observarse en la siguiente figura, el ángulo de ensamble entre las dos piezas fue medido con transportador y se comparó con la vista lateral del modelado en Inventor y directamente con el robot, pues el ángulo correcto se observaba si el marcador se encontraba perfectamente vertical en posición de HOME. La pieza se imprimió en PLA en una impresora CREALITY Ender 3.
 
 <p align="center">
   <img width="600" height="1000" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/0061de48-3364-489f-adc3-05b73b57fdfe">  
 </p>
+
+En la siguiente imágen se puede ver con claridad la posición buscada de la herramienta diseñada en el robot.
 
 <p align="center">
   <img width="1000" height="1000" src="https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/a2998b89-ef5b-4143-b568-5bd734ee4ffb">  
@@ -57,13 +71,19 @@ Como parte del proceso iterativo que se llevó a cabo para dar con una trayector
 
 ## Simulación en RobotStudio  
 
+En el siguiente video se hace la presentación de la simulación desarrollada en RobotStudio, de la cuál se obteniene el programa que fué cargado en el controlador del robot en el LabSIR para la realización de la práctica real. En primer lugar se creao la simulación sin tener en cuenta entradas y sálidas, y cuando ya se verificó que la trasyectorianera adecuada y no presentaba errores en ejecución, se procede a incluir y programar las entradas y salidas digitales. En el video se observa a la derecha el panel de entradas y salidas y como al manipular las entradas durante la simulación se obtnien la ejecución de cada rutina y la salida corresponsiente.
+
 https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/4c1a2998-2781-41d5-81e9-d786c137cee9
 
-## Implementación práctica en el LabSir
+## Implementación práctica en el LabSir  
 
-https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/897dcec8-3eaa-4413-9d8c-0e81b65b51f6
+Finalmente en este video se muestra la grabación en tiempo real de las rutinas ejecutadas con el robot en el laboratorio. Primero se toma el FlexPendant y se inserta la USB para cargar el programa. Luego de cargado el programa se ejecuta la rutina de mantenimiento para instalar la herramienta en el robot utilizando la herramienta disponible en el laboratorio. Luego se lleva el robot a posición de HOME y se procede a poner el workobject en la zona de trabajo. Ene ste caso se utilizó uno de los planos inclinados, por lo que con cinta se pega una hoja desde la esquina superior del plano inclinado. El paso siguiente fué definir el workobject, para esto se crea un nuevo dato tipo workobject en la pestaña de program data y se define los 3 puntos del sistema de coordenadas de usuario, 2 sobre el vértice superior del plano como eje X y uno sobre el vértice lateral izquierdo como eje Y, utilizando la función de Jogging del robot. Ya con el workobject definido se verifica la que el dato de herramienta tipo ToolData importado de la simulación funcione correctamente ejecutando paso a paso la rutina de dibujo desde el FlexPendant. Ya verificado el TCP de la herramienta se hizo una serie de pruebas para calibrar manualmente el plano inclinado teniendo en cuenta la presencia de diversas descontinuidades en el mismo y la estructura que lo sostiene. Luego de un par de pruebas se cambia la hoja por una hoja limpia y se ejecuta la rutina de dibujo final para ser grabada, que es la que se evidencia en el video.
 
+https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/897dcec8-3eaa-4413-9d8c-0e81b65b51f6  
 
+En la siguiente imágen se exponen las distintas pruebas realizadas de la rutina de dibujo y a la derecha se presenta la prueba final, a pesar de que no existe un espacio muy evidente entre las letras, se evidencia que esta ahí presente y que los trazos realizados son lo suficientemente precisos para que se vea claramente tanto el logo como las letras.
+
+![WhatsApp Image 2024-03-22 at 7 03 49 PM](https://github.com/jptejeirol/Robotica_Lab_1/assets/164267794/afe27b7c-0eb7-4caa-ad0b-46dd76b35983)
 
 
 
